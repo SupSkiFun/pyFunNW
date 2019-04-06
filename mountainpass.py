@@ -43,31 +43,19 @@ def _printPassCondition(passInfo):
         print(y)
 
 def getCondition(passID, apiCode):
-    '''Retrieve Mountain Pass Condition for submitted passID from WSDOT
+    '''
+    Retrieve and Print Mountain Pass Condition for passID from WSDOT.
+    Returns tuple of Latitude and Longitude from the Mountain Pass.
+    Example: retVal=getCondition(4,code) - conditions print to screen -
+    retVal[0]=latitude & retval[1]=longitude
 
     Arguments:
 
     apiCode: Your access code.  http://www.wsdot.com/traffic/api/
+
     passID:  Pass number. https://www.wsdot.com/traffic/passes/
 
-    Returns Latitude and Longitude of Mountain Pass
-
-        1 Blewett Pass US97
-        2 Cayuse Pass SR123
-        3 Chinook Pass SR410
-        5 Crystal to Greenwater SR410
-        6 Mt. Baker Hwy SR542
-        7 North Cascade Hwy SR20
-        8 Satus Pass US97
-        9 Sherman Pass SR20
-        10 Stevens Pass US2
-        11 Snoqualmie Pass I-90
-        12 White Pass US12
-        13 Manastash Ridge I-82
-        14 Loup Loup Pass SR20
-        15 Disautel Pass SR 155
-        16 Wauconda Pass SR20
-        '''
+    '''
     passCondition = _getPassCondition(passID , apiCode)
     if "Problem" in passCondition:
         print(passCondition)

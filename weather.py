@@ -89,10 +89,14 @@ def getWeather(latitude, longitude, userAgent, hoursFC = 48, hoursHR = 12):
     Arguments:
 
     latitude:  Latitude - string or float ok
+
     longitude: Longitude - string or float ok
+
     userAgent: Company or Application or Your Name
+
     hoursFC:   Hours of Weather Forecast by periods (e.g. morning, evening).
         -1 for no results.
+
     hoursHR:   Hours of Weather Forecast by the hour.
         -1 for no results.
     '''
@@ -121,5 +125,3 @@ def getWeather(latitude, longitude, userAgent, hoursFC = 48, hoursHR = 12):
         print("\n")
     else:
         _printWeatherHourly(WHdata, hoursHR)
-
-
