@@ -27,7 +27,6 @@ def _getTideTable(staID):
 			return "Problem accessing data for Station" +staID+ " tides:\n" + str(res.content)
 		else:
 			jrd = res.json()
-			#print(jrd)
 			return jrd
 
 def _printTideTable(tideData , staID , banner):
