@@ -6,6 +6,8 @@ https://tidesandcurrents.noaa.gov/tide_predictions.html?gid=1415
 https://www.tidesandcurrents.noaa.gov/api/
 
 
+StationID, StationName (altered)
+
 stations = {
 	9445882 : "Eagle Harbor" ,
 	9445753 : "Port Madison - North of Island" ,
