@@ -64,7 +64,7 @@ Wauconda Pass SR20 , 16
 --------------------
 Ferry
 
-Terminal , ID
+Ferry Terminal , ID
 
 Anacortes , 1
 Bainbridge Island , 3
