@@ -21,29 +21,93 @@ Weather
 
 https://forecast-v3.weather.gov/documentation?redirect=legacy
 
-----------------------
-Mountain Pass
+StationName (altered), StationID, Latitude, Longitude
 
+stations = [
+    ["Eagle Harbor" , 9445882 , +47.6200 , -122.5150] ,
+    ["Port Madison - North of Island" , 9445753 , +47.7050 , -122.5250] ,
+    ["Port Blakely" , 9445913 , +47.5967 , -122.5100] ,
+    ["Clam Bay, Rich Passage - South of Island" , 9445938 , +47.5733 , -122.5430],
+    ["Brownsville - West of Island" , 9445832 , +47.6517 , -122.6150] ,
+    ["Bremerton, Sinclair Inlet" , 9445958 , +47.5617 , -122.6230] ,
+    ["Poulsbo, Liberty Bay" , 9445719 , +47.7250 , -122.6380 ] ,
+]
+
+locale = collections.namedtuple('locale', ['station', 'ID', 'latitude', 'longitude'])
+locales = [locale (*line) for line in stations]
+
+----------------------
+WSDOT
     Obtain API access code.  http://www.wsdot.com/traffic/api/
     Pass numbers. https://www.wsdot.com/traffic/passes/
 
-        1 Blewett Pass US97
-        2 Cayuse Pass SR123
-        3 Chinook Pass SR410
-        5 Crystal to Greenwater SR410
-        6 Mt. Baker Hwy SR542
-        7 North Cascade Hwy SR20
-        8 Satus Pass US97
-        9 Sherman Pass SR20
-        10 Stevens Pass US2
-        11 Snoqualmie Pass I-90
-        12 White Pass US12
-        13 Manastash Ridge I-82
-        14 Loup Loup Pass SR20
-        15 Disautel Pass SR 155
-        16 Wauconda Pass SR20
+Mountain Pass , ID
+
+Blewett Pass US97 , 1
+Cayuse Pass SR123 , 2
+Chinook Pass SR410 , 3
+Crystal to Greenwater SR410 , 5
+Mt. Baker Hwy SR542 , 6
+North Cascade Hwy SR20 , 7
+Satus Pass US97 , 8
+Sherman Pass SR20 , 9
+Stevens Pass US2 , 10
+Snoqualmie Pass I-90 , 11
+White Pass US12 , 12
+Manastash Ridge I-82 , 13
+Loup Loup Pass SR20 , 14
+Disautel Pass SR 155 , 15
+Wauconda Pass SR20 , 16
 
 --------------------
 Ferry
 
-Terminal Numbers and Boat Numbers here!
+Terminal , ID
+
+Anacortes , 1
+Bainbridge Island , 3
+Bremerton , 4
+Clinton , 5
+Coupeville  , 11
+Edmonds , 8
+Fauntleroy , 9
+Friday Harbor , 10
+Kingston , 12
+Lopez Island , 13
+Mukilteo , 14
+Orcas Island , 15
+Point Defiance , 16
+Port Townsend , 17
+Seattle , 7
+Shaw Island , 18
+Sidney B.C. , 19
+Southworth , 20
+Tahlequah , 21
+Vashon Island , 22
+
+
+Ferry , ID
+
+Cathlamet , 1
+Chelan , 2
+Chetzemoka , 65
+Chimacum , 74
+Elwha , 8
+Hyak , 13
+Issaquah , 15
+Kaleetan , 17
+Kennewick , 52
+Kitsap , 18
+Kittitas , 19
+Puyallup , 25
+Salish , 66
+Samish , 69
+Sealth , 28
+Spokane , 30
+Suquamish , 75
+Tacoma , 32
+Tillikum , 33
+Tokitae , 68
+Walla Walla , 36
+Wenatchee , 37
+Yakima , 38
