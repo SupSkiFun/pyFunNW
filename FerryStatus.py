@@ -1,64 +1,58 @@
 import requests
 from datetime import datetime
 
-def getFerrySchedule(terminal):
+def _getFerrySchedule(terminal , header , param):
     '''Retrieves the Next 4 Departing Ferries from submitted terminals'''
     urlbase = 'http://www.wsdot.wa.gov/Ferries/API/Terminals/rest/terminalsailingspace/'
-    schedURL = urlbase+str(terminal)+'?'+urlcode
+    schedURL = urlbase+str(terminal)
     try:
-        res4 = requests.get(schedURL , headers = header)
+        res4 = requests.get(schedURL , headers = header, params = param)
         res4.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("Problem Accessing the below URL for sailing space status:")
-        print(err)
+        return "Problem Accessing the below URL for terminal " +terminal+ " status:\n" +str(err)
     else:
         jrd4 = res4.json()
-        printFerrySchedule(jrd4)
+        return jrd4
 
-def getFerryStatus(vesselID):
+def _getFerryStatus(vesselID , header, param):
     '''Retrives status of first ferry in list of departing ferries from submitted terminals'''
     urlbase2 = 'http://www.wsdot.wa.gov/Ferries/API/Vessels/rest/vessellocations/'
-    url = urlbase2+vesselID+urlcode
+    url = urlbase2+vesselID
+
     try:
-        res = requests.get(url , headers = header)
+        res = requests.get(url , headers = header, params= param)
         res.raise_for_status()
     except requests.exceptions.HTTPError as err:
-        print("Problem Accessing the below URL for current ferry status:")
-        print(err)
+        return "Problem Accessing the below URL for ferry " +vesselID+ " status:\n" + str(err)
     else:
         jrd = res.json()
-        printFerryStatus(jrd)
+        return jrd
 
-def printFerrySchedule(jrd4):
+def _printFerrySchedule(fdata , sailings , status , header , param):
     '''Prints the Next 4 Departing Ferries from submitted terminals.'''
-    # Used counter instead of slices; Seattle has ferries to BI and Bremerton; BI only has ferries to Seattle.
-    tcount = 1
-    checkFerry = True
-    print("\n\t" + jrd4['TerminalName'] + " Terminal Ferry Departure Schedule" +"\n")
-    for x in jrd4['DepartingSpaces']:
+    print("\n\t" + fdata['TerminalName'] + " Terminal Ferry Departure Schedule" +"\n")
+    for x in fdata['DepartingSpaces'][:sailings]:
         for y in x['SpaceForArrivalTerminals']:
-            if tcount < 5:
-                if "Bainb" in y['TerminalName'] or "Seattle" in y['TerminalName']:
-                    print(datetime.fromtimestamp(int(x['Departure'].split('(')[1][:10])).strftime('%d-%b-%Y %H:%M'))
-                    print(y['VesselName'])
-                    print(y['DriveUpSpaceCount'])
-                    if x['IsCancelled']:
-                            print("Ferry is cancelled")
-                    if checkFerry:
-                        getFerryStatus(str(y['VesselID'])+'?')
-                        checkFerry = False
-                    print("------------------")
-                    tcount += 1
-            else:
-                break
+            dt = datetime.fromtimestamp(int(x['Departure'].split('(')[1][:10])).strftime('%d-%b-%Y %H:%M')
+            print("Scheduled Departure:  " + dt)
+            print("Destination:  " + y['TerminalName'])
+            print("Ferry:  " + y['VesselName'])
+            print("Available Car Spaces:  " + str(y['DriveUpSpaceCount']))
+            if x['IsCancelled']:
+                print("Sailing is cancelled")
+                status = False
+            if status:
+                status = False
+                jrd = _getFerryStatus(str(y['VesselID']) , header , param)
+                _printFerryStatus(jrd)
+            print("------------------")
 
-def printFerryStatus(jrd):
+
+def _printFerryStatus(jrd):
     '''Prints status of first ferry in list of departing ferries from submitted terminals'''
     if jrd['AtDock']:
-        #if jrd['ScheduledDeparture'] is None:   ORIGINAL LINE
         if None in (jrd['ScheduledDeparture'] , jrd['DepartingTerminalName'] , jrd['ArrivingTerminalName']):
-            #print("No Departure Time from " + jrd['DepartingTerminalName'] + " available.  Try again in 90 seconds.")  ORIGINAL LINE
-            print("No Departure Time available.  Try again in 90 seconds.")
+           print("No Departure Time available.  Try again in 90 seconds.")
         else:
             vdtd = datetime.fromtimestamp(int(jrd['ScheduledDeparture'].split('(')[1][:10])).strftime('%d-%b-%Y %H:%M')
             print("At Dock in "+ jrd['DepartingTerminalName'] + '.  Scheduled Departure to ' + jrd['ArrivingTerminalName']   + ' at ' + vdtd )
@@ -69,17 +63,38 @@ def printFerryStatus(jrd):
             vdta = datetime.fromtimestamp(int(jrd['Eta'].split('(')[1][:10])).strftime('%d-%b-%Y %H:%M')
             print("Estimated Arrival to " + jrd['ArrivingTerminalName']   + " from " + jrd['DepartingTerminalName'] + " at " + vdta)
 
-def main():
-    terminals = {
-        3 : "Bainbridge Island" ,
-        7 : "Seattle" ,
-	}
-    for t in terminals:
-        getFerrySchedule(t)
+# def main():
+#     terminals = {
+#         3 : "Bainbridge Island" ,
+#         7 : "Seattle" ,
+# 	}
+#     for t in terminals:
+#         getFerrySchedule(t)
 
-urlcode = 'apiaccesscode=myCoolKey'
-header = {'Accept' : 'application/json'}
+def getSchedule(terminal, apiCode, sailings = 4, status = True):
+    '''
+    Retrieve and Print Ferry Schedule and Status for terminal from WSDOT.
 
-if __name__ == "__main__":
-    main()
+    Arguments:
 
+    terminal:  Pass number. https://www.wsdot.com/traffic/passes/
+
+    apiCode: Your access code.  http://www.wsdot.com/traffic/api/
+
+    sailingss: Number of departing ferries to list
+
+    status: Obtain next ferry's current status
+
+    '''
+
+    header = {'Accept' : 'application/json'}
+    param = {'apiaccesscode' : apiCode }
+
+
+    fdata = _getFerrySchedule(terminal, header, param)
+    if "Problem" in fdata:
+        print(fdata)
+        print("\n" + "Terminating due to lack of Terminal Information")
+        raise SystemExit()
+    else:
+        _printFerrySchedule(fdata, sailings, status, header, param)

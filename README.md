@@ -1,2 +1,2 @@
 # pyFunNW
-Python Module for Pacific NorthWest weather, tides, passes, ferries, etc
+Python Module for Pacific NorthWest (PACNORWES) weather, tides, passes, ferries, etc

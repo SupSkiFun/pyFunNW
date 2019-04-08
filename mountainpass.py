@@ -51,9 +51,9 @@ def getCondition(passID, apiCode):
 
     Arguments:
 
-    apiCode: Your access code.  http://www.wsdot.com/traffic/api/
-
     passID:  Pass number. https://www.wsdot.com/traffic/passes/
+
+    apiCode: Your access code.  http://www.wsdot.com/traffic/api/
 
     '''
     passCondition = _getPassCondition(passID , apiCode)
