@@ -69,7 +69,7 @@ def getSchedule(terminal, apiCode, sailings = 4, status = True):
 
     Arguments:
 
-    terminal:  Pass number. https://www.wsdot.com/traffic/passes/
+    terminal:  Terminal number. See VariousInfo.txt or http://www.wsdot.com/traffic/api/
 
     apiCode: Your access code.  http://www.wsdot.com/traffic/api/
 
