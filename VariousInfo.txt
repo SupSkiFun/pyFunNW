@@ -64,28 +64,30 @@ Wauconda Pass SR20 , 16
 --------------------
 Ferry
 
-Ferry Terminal , ID
+    terminals = {
+        1 : 'Anacortes' ,
+        3 : 'Bainbridge Island' ,
+        4 : 'Bremerton' ,
+        5 : 'Clinton' ,
+        7 : 'Seattle' ,
+        8 : 'Edmonds' ,
+        9 : 'Fauntleroy' ,
+        10 : 'Friday Harbor' ,
+        11 : 'Coupeville' ,
+        12 : 'Kingston' ,
+        13 : 'Lopez Island' ,
+        14 : 'Mukilteo' ,
+        15 : 'Orcas Island' ,
+        16 : 'Point Defiance' ,
+        17 : 'Port Townsend' ,
+        18 : 'Shaw Island' ,
+        19 : 'Sidney B.C.' ,
+        20 : 'Southworth' ,
+        21 : 'Tahlequah' ,
+        22 : 'Vashon Island' ,
+    }
 
-Anacortes , 1
-Bainbridge Island , 3
-Bremerton , 4
-Clinton , 5
-Coupeville  , 11
-Edmonds , 8
-Fauntleroy , 9
-Friday Harbor , 10
-Kingston , 12
-Lopez Island , 13
-Mukilteo , 14
-Orcas Island , 15
-Point Defiance , 16
-Port Townsend , 17
-Seattle , 7
-Shaw Island , 18
-Sidney B.C. , 19
-Southworth , 20
-Tahlequah , 21
-Vashon Island , 22
+
 
 
 Ferry , ID

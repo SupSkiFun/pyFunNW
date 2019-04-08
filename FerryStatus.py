@@ -63,14 +63,6 @@ def _printFerryStatus(jrd):
             vdta = datetime.fromtimestamp(int(jrd['Eta'].split('(')[1][:10])).strftime('%d-%b-%Y %H:%M')
             print("Estimated Arrival to " + jrd['ArrivingTerminalName']   + " from " + jrd['DepartingTerminalName'] + " at " + vdta)
 
-# def main():
-#     terminals = {
-#         3 : "Bainbridge Island" ,
-#         7 : "Seattle" ,
-# 	}
-#     for t in terminals:
-#         getFerrySchedule(t)
-
 def getSchedule(terminal, apiCode, sailings = 4, status = True):
     '''
     Retrieve and Print Ferry Schedule and Status for terminal from WSDOT.
@@ -81,7 +73,7 @@ def getSchedule(terminal, apiCode, sailings = 4, status = True):
 
     apiCode: Your access code.  http://www.wsdot.com/traffic/api/
 
-    sailingss: Number of departing ferries to list
+    sailings: Number of departing ferries to list
 
     status: Obtain next ferry's current status
 
@@ -89,7 +81,6 @@ def getSchedule(terminal, apiCode, sailings = 4, status = True):
 
     header = {'Accept' : 'application/json'}
     param = {'apiaccesscode' : apiCode }
-
 
     fdata = _getFerrySchedule(terminal, header, param)
     if "Problem" in fdata:

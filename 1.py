@@ -3,10 +3,8 @@
 # from mountainpass import getCondition
 from ferrystatus import getSchedule
 
-code = '3f910268-4452-47f1-9f03-3b31e48af62d'
-
-getSchedule(3,code)
-getSchedule(7,code)
+#getSchedule(3,code)
+#getSchedule(7,code)
 
 
 # abc = getCondition(7,'myCoolKey')
