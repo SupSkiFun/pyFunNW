@@ -62,56 +62,53 @@ Disautel Pass SR 155 , 15
 Wauconda Pass SR20 , 16
 
 --------------------
-Ferry
+Ferry Information
 
-    terminals = {
-        1 : 'Anacortes' ,
-        3 : 'Bainbridge Island' ,
-        4 : 'Bremerton' ,
-        5 : 'Clinton' ,
-        7 : 'Seattle' ,
-        8 : 'Edmonds' ,
-        9 : 'Fauntleroy' ,
-        10 : 'Friday Harbor' ,
-        11 : 'Coupeville' ,
-        12 : 'Kingston' ,
-        13 : 'Lopez Island' ,
-        14 : 'Mukilteo' ,
-        15 : 'Orcas Island' ,
-        16 : 'Point Defiance' ,
-        17 : 'Port Townsend' ,
-        18 : 'Shaw Island' ,
-        19 : 'Sidney B.C.' ,
-        20 : 'Southworth' ,
-        21 : 'Tahlequah' ,
-        22 : 'Vashon Island' ,
-    }
+terminals = {
+    1 : 'Anacortes' ,
+    3 : 'Bainbridge Island' ,
+    4 : 'Bremerton' ,
+    5 : 'Clinton' ,
+    7 : 'Seattle' ,
+    8 : 'Edmonds' ,
+    9 : 'Fauntleroy' ,
+    10 : 'Friday Harbor' ,
+    11 : 'Coupeville' ,
+    12 : 'Kingston' ,
+    13 : 'Lopez Island' ,
+    14 : 'Mukilteo' ,
+    15 : 'Orcas Island' ,
+    16 : 'Point Defiance' ,
+    17 : 'Port Townsend' ,
+    18 : 'Shaw Island' ,
+    19 : 'Sidney B.C.' ,
+    20 : 'Southworth' ,
+    21 : 'Tahlequah' ,
+    22 : 'Vashon Island' ,
+}
 
-
-
-
-Ferry , ID
-
-Cathlamet , 1
-Chelan , 2
-Chetzemoka , 65
-Chimacum , 74
-Elwha , 8
-Hyak , 13
-Issaquah , 15
-Kaleetan , 17
-Kennewick , 52
-Kitsap , 18
-Kittitas , 19
-Puyallup , 25
-Salish , 66
-Samish , 69
-Sealth , 28
-Spokane , 30
-Suquamish , 75
-Tacoma , 32
-Tillikum , 33
-Tokitae , 68
-Walla Walla , 36
-Wenatchee , 37
-Yakima , 38
+ferries = {
+    1 : Cathlamet ,
+    2 : Chelan ,
+    8 : Elwha ,
+    13 : Hyak ,
+    15 : Issaquah ,
+    17 : Kaleetan ,
+    18 : Kitsap ,
+    19 : Kittitas ,
+    25 : Puyallup ,
+    28 : Sealth ,
+    30 : Spokane ,
+    32 : Tacoma ,
+    33 : Tillikum ,
+    36 : Walla Walla ,
+    37 : Wenatchee ,
+    38 : Yakima ,
+    52 : Kennewick ,
+    65 : Chetzemoka ,
+    66 : Salish ,
+    68 : Tokitae ,
+    69 : Samish ,
+    74 : Chimacum ,
+    75 : Suquamish ,
+}
