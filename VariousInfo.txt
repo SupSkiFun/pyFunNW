@@ -43,23 +43,23 @@ WSDOT
     Obtain API access code.  http://www.wsdot.com/traffic/api/
     Pass numbers. https://www.wsdot.com/traffic/passes/
 
-Mountain Pass , ID
-
-Blewett Pass US97 , 1
-Cayuse Pass SR123 , 2
-Chinook Pass SR410 , 3
-Crystal to Greenwater SR410 , 5
-Mt. Baker Hwy SR542 , 6
-North Cascade Hwy SR20 , 7
-Satus Pass US97 , 8
-Sherman Pass SR20 , 9
-Stevens Pass US2 , 10
-Snoqualmie Pass I-90 , 11
-White Pass US12 , 12
-Manastash Ridge I-82 , 13
-Loup Loup Pass SR20 , 14
-Disautel Pass SR 155 , 15
-Wauconda Pass SR20 , 16
+passes = {
+    1 : 'Blewett Pass US97' ,
+    2 : 'Cayuse Pass SR123' ,
+    3 : 'Chinook Pass SR410' ,
+    5 : 'Crystal to Greenwater SR410' ,
+    6 : 'Mt. Baker Hwy SR542' ,
+    7 : 'North Cascade Hwy SR20' ,
+    8 : 'Satus Pass US97' ,
+    9 : 'Sherman Pass SR20' ,
+    10 : 'Stevens Pass US2' ,
+    11 : 'Snoqualmie Pass I-90' ,
+    12 : 'White Pass US12' ,
+    13 : 'Manastash Ridge I-82' ,
+    14 : 'Loup Loup Pass SR20' ,
+    15 : 'Disautel Pass SR 155' ,
+    16 : 'Wauconda Pass SR20' ,
+}
 
 --------------------
 Ferry Information
@@ -88,27 +88,27 @@ terminals = {
 }
 
 ferries = {
-    1 : Cathlamet ,
-    2 : Chelan ,
-    8 : Elwha ,
-    13 : Hyak ,
-    15 : Issaquah ,
-    17 : Kaleetan ,
-    18 : Kitsap ,
-    19 : Kittitas ,
-    25 : Puyallup ,
-    28 : Sealth ,
-    30 : Spokane ,
-    32 : Tacoma ,
-    33 : Tillikum ,
-    36 : Walla Walla ,
-    37 : Wenatchee ,
-    38 : Yakima ,
-    52 : Kennewick ,
-    65 : Chetzemoka ,
-    66 : Salish ,
-    68 : Tokitae ,
-    69 : Samish ,
-    74 : Chimacum ,
-    75 : Suquamish ,
+    1 : 'Cathlamet' ,
+    2 : 'Chelan' ,
+    8 : 'Elwha' ,
+    13 : 'Hyak' ,
+    15 : 'Issaquah' ,
+    17 : 'Kaleetan' ,
+    18 : 'Kitsap' ,
+    19 : 'Kittitas' ,
+    25 : 'Puyallup' ,
+    28 : 'Sealth' ,
+    30 : 'Spokane' ,
+    32 : 'Tacoma' ,
+    33 : 'Tillikum' ,
+    36 : 'Walla Walla' ,
+    37 : 'Wenatchee' ,
+    38 : 'Yakima' ,
+    52 : 'Kennewick' ,
+    65 : 'Chetzemoka' ,
+    66 : 'Salish' ,
+    68 : 'Tokitae' ,
+    69 : 'Samish' ,
+    74 : 'Chimacum' ,
+    75 : 'Suquamish' ,
 }
