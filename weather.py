@@ -88,9 +88,9 @@ def getWeather(latitude, longitude, userAgent, hoursFC = 48, hoursHR = 12):
 
     Arguments:
 
-    latitude:  Latitude - string or float ok
+    latitude:  Latitude - string or float ok - e.g. +47.6062
 
-    longitude: Longitude - string or float ok
+    longitude: Longitude - string or float ok - e.g. -122.3321
 
     userAgent: Company or Application or Your Name
 

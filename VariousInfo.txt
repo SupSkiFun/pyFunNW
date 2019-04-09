@@ -1,3 +1,38 @@
+--------
+Usage:
+
+For mountainpass and ferrystatus, get an API Access Code:
+Obtain API access code.  http://www.wsdot.com/traffic/api/
+
+For tides and weather, use your own application name / User Agent.  This can
+be your application, business, website, etc.  Just something.
+https://www.tidesandcurrents.noaa.gov/api/ - look for Application Heading
+
+
+from weather import getWeather
+from tide import getTide
+from mountainpass import getCondition
+from ferrystatus import getSchedule
+
+code = 'wsdot-api-access-code-goes-here'
+appname ='your-unique-app-name-here'
+
+getSchedule(3,code)
+getSchedule(7,code)
+getSchedule(4,code,sailings=8,status=False)
+
+getCondition(7,code)
+
+retdata = getCondition(12,code)
+getWeather(retdata[0] , retdata [1], appname)
+
+getWeather(+47.6062 , -122.3321, appname)
+
+getTide(9445882,appname)
+getTide(9445719 , appname,banner=False)
+
+
+
 -------------------
 Tides
 

@@ -1,13 +1,13 @@
 import requests
 import datetime
 
-def _getTideTable(staID):
+def _getTideTable(staID, userAgent):
 	'''Retrieve and Unmarshal JSON data within a 48 hour window'''
 	dt = datetime.datetime.today().strftime('%Y%m%d')
 	url = 'https://tidesandcurrents.noaa.gov/api/datagetter'
 	params = {
 		"product" : "predictions" ,
-		"application" : "SupSkiFun" ,
+		"application" : userAgent ,
 		"begin_date" : dt ,
 		"range" : 48 ,
 		"datum" : "MLLW" ,
@@ -43,17 +43,19 @@ def _printTideTable(tideData , staID , banner):
 		print(j['t']+"\t"+tidetype+"\t"+j['v'])
 	print("\n")
 
-def getTide(staID , banner = True):
+def getTide(staID , userAgent , banner = True):
 	''' Retrieve Weather from submitted Station ID
 
 	Arguments:
 
 	staID:  7 digit station ID - https://tidesandcurrents.noaa.gov/stations.html
 
+	userAgent: Company or Application or Your Name
+
 	banner:  set to False to supress printing station banner info with tide charts
 	'''
 	staID = str(staID)
-	tideData = _getTideTable(staID)
+	tideData = _getTideTable(staID,userAgent)
 	if "Problem" in tideData:
 		print(tideData)
 		print("\n")
