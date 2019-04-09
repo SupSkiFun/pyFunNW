@@ -13,11 +13,6 @@ from pyFuNW import tide
 from pyFuNW import mountainpass
 from pyFuNW import ferrystatus
 
-from weather import getWeather
-from tide import getTide
-from mountainpass import getCondition
-from ferrystatus import getSchedule
-
 code = 'wsdot-api-access-code-goes-here'
 appname ='your-unique-app-name-here'
 
